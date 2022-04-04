@@ -34,9 +34,9 @@
                 <b><a class="nav-link" href="#" style="color: cornflowerblue;">Friends</a></b>
                 <b><a class="nav-link" href="#" style="color: cornflowerblue;">Groups</a></b>
                   {% else %}
-                <b><a class="nav-link" href="#" style="color: cornflowerblue;">Signup</a></b>
+                <b><a class="nav-link" href="{% url 'accounts:signup' %}" style="color: cornflowerblue;">Signup</a></b>
                 <a class="nav-link" style="color: cornflowerblue;">or</a>
-                <b><a class="nav-link" href="#" style="color: cornflowerblue;">Signin</a></b>
+                <b><a class="nav-link" href="{% url 'accounts:signin' %}" style="color: cornflowerblue;">Signin</a></b>
                   {% endif %}
               </div>
                 <div class="col-2 navbar-nav"></div>
@@ -46,6 +46,7 @@
         <div class="col-sm collapse navbar-collapse">
             {% if user.is_authenticated %}
             <b><a class="nav-link" href="#" style="color: cornflowerblue;">Account</a></b>
+            <b><a class="nav-link" href="{% url 'accounts:logout' %}" style="color: cornflowerblue;">Logout</a></b>
             {% endif %}
         </div>
       </div>
