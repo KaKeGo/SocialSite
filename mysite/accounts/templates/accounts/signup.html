@@ -19,27 +19,27 @@
             <div class="m-2 p-2 text-center card-title">
               <h4 class="p-2">Sign up</h4>
             </div>
-            <div class="card-body b m-2">
-                {{form.as_p}}
+            <div class="card-body m-2">
                 <div class="group-control m-2">
-                    <input class="form-control text-center" type="text"
-                           placeholder="Username" autofocus>
+                    <input class="form-control text-center" type="text" name="username" maxlength="35"
+                           placeholder="Username" autofocus required>
                 </div>
                 <div class="group-control m-2">
-                    <input class="form-control text-center" type="text"
-                            placeholder="Email@example.com">
+                    <input class="form-control text-center" type="email" name="email" maxlength="30"
+                            placeholder="Email@example.com" required>
                 </div>
                 <div class="group-control m-2">
-                    <input class="form-control text-center" type="text"
+                    <input class="form-control text-center" type="password" name="password1"
                             placeholder="Password">
                 </div>
                 <div class="group-control m-2">
-                    <input class="form-control text-center" type="text"
+                    <input class="form-control text-center" type="password" name="password2"
                             placeholder="Confirm password">
                 </div>
                 <div class="group-control m-2">
                     <div class="form-check form-switch mx-5">
-                      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                            name="regiment" required>
                       <label class="form-check-label" for="flexSwitchCheckDefault">
                           read <a href="#">regiment</a> and confirm
                       </label>
