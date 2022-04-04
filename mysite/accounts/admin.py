@@ -1,11 +1,16 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 from .models import User, Profile
+from .forms import UserCreateForm, UserChangeForm
 # Register your models here.
 
 
-@admin.register(User)
-class UserAdmin(admin.ModelAdmin):
+class UserAdmin(BaseUserAdmin):
+    form = UserChangeForm
+    add_form = UserCreateForm
+
+    filter_horizontal = ()
     list_display = ('username', 'email', 'last_login')
     list_filter = ('email', 'username', 'is_staff', 'is_admin')
     ordering = ('-date_joined',)
@@ -26,3 +31,5 @@ class ProfileAdmin(admin.ModelAdmin):
         ('Personal', {'fields': ('first_name', 'last_name', 'bio')}),
         ('Additional', {'fields': ('slug',)})
     )
+
+admin.site.register(User, UserAdmin)
