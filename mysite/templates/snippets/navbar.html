@@ -1,0 +1,51 @@
+{% load static %}
+
+<style>
+    .text{
+        color: white;
+    }
+    .site-logo{
+        width: 100px;
+    }
+    .b{
+        border: solid;
+    }
+    .navbar{
+        color: gray;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg shadow mb-3 navbar-light bg-dark">
+    <img class="site-logo" src="{% static 'img/logo.png' %}">
+    <div class="container-fluid mx-3 m-2">
+      <div class="row align-items-start">
+        <div class="col-sm">
+        </div>
+      </div>
+        <div class="col-sm mx-5">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="col collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                  {% if user.is_authenticated %}
+                <b><a class="nav-link" href="#" style="color: cornflowerblue;">Home</a></b>
+                <b><a class="nav-link" href="#" style="color: cornflowerblue;">Friends</a></b>
+                <b><a class="nav-link" href="#" style="color: cornflowerblue;">Groups</a></b>
+                  {% else %}
+                <b><a class="nav-link" href="#" style="color: cornflowerblue;">Signup</a></b>
+                <a class="nav-link" style="color: cornflowerblue;">or</a>
+                <b><a class="nav-link" href="#" style="color: cornflowerblue;">Signin</a></b>
+                  {% endif %}
+              </div>
+            </div>
+      </div>
+      <div class="row align-items-end">
+        <div class="col-sm collapse navbar-collapse">
+            {% if user.is_authenticated %}
+            <b><a class="nav-link" href="#" style="color: cornflowerblue;">Account</a></b>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+</nav>
