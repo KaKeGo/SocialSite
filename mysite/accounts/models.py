@@ -56,6 +56,10 @@ class User(AbstractBaseUser):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    avatar = models.ImageField(default='img/avatar.jpg', upload_to='profile/avatars')
+    first_name = models.CharField(max_length=30, default='Update name', null=True, blank=True)
+    last_name = models.CharField(max_length=30, default='Update last name', null=True, blank=True)
+    bio = models.TextField(max_length=1500, default='Write something about your self', null=True, blank=True)
     slug = models.SlugField(unique=True)
 
     def __str__(self):
