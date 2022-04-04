@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 
@@ -53,5 +54,13 @@ class User(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
 
-class Profile():
-    pass
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    slug = models.SlugField(unique=True)
+
+    def __str__(self):
+        return str(self.user)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(str(self.user.username))
+        super(Profile, self).save(*args, **kwargs)
