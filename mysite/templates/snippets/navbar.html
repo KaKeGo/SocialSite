@@ -26,8 +26,9 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="col collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
+            <div class="col-12 collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="col-4 navbar-nav"></div>
+              <div class="col-6 navbar-nav">
                   {% if user.is_authenticated %}
                 <b><a class="nav-link" href="#" style="color: cornflowerblue;">Home</a></b>
                 <b><a class="nav-link" href="#" style="color: cornflowerblue;">Friends</a></b>
@@ -38,6 +39,7 @@
                 <b><a class="nav-link" href="#" style="color: cornflowerblue;">Signin</a></b>
                   {% endif %}
               </div>
+                <div class="col-2 navbar-nav"></div>
             </div>
       </div>
       <div class="row align-items-end">
