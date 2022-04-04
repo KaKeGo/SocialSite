@@ -18,3 +18,11 @@ class UserAdmin(admin.ModelAdmin):
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('user',)
+    list_filter = ('user', 'first_name', 'last_name')
+    ordering = ('first_name',)
+    list_display = ('user', 'first_name', 'last_name')
+    fieldsets = (
+        ('info', {'fields': ('user', 'avatar')}),
+        ('Personal', {'fields': ('first_name', 'last_name', 'bio')}),
+        ('Additional', {'fields': ('slug',)})
+    )
