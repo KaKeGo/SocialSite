@@ -1,0 +1,62 @@
+{% load static %}
+
+<style>
+    .emo{
+        size: 80px;
+        color: gray;
+    }
+    .text{
+        color: gray;
+    }
+    .text:hover{
+        color: orangered;
+    }
+    .site-logo{
+        width: 70px;
+    }
+    .b{
+        border: solid;
+    }
+    .navbar{
+        color: gray;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg shadow navbar-light bg-dark">
+    <a href="{% url 'accounts:first' %}"><img class="site-logo" src="{% static 'img/logo.png' %}" title="KaGaRya"></a>
+    <div class="container-fluid mx-3">
+      <div class="row align-items-start">
+        <div class="col-sm">
+        </div>
+      </div>
+        <div class="col-sm mx-5">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="col-12 collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="col-4 navbar-nav"></div>
+              <div class="col-6 navbar-nav">
+                  {% if user.is_authenticated %}
+                    <a class="nav-link mt-1 btn btn-dark btn-lg" href="{% url 'accounts:profile' request.user.profile.slug %}" style="color: cornflowerblue;"><i class="fa-solid fa-user text" title="Profile"></i></a>
+                    <a class="nav-link mt-1 btn btn-dark btn-lg" href="#" style="color: cornflowerblue;"><i class="fa-solid fa-house text" title="Home"></i></a>
+                    <a class="nav-link mt-1 btn btn-dark btn-lg" href="#" style="color: cornflowerblue;"><i class="fa-solid fa-user-group text" title="Friends"></i></a>
+                    <a class="nav-link mt-1 btn btn-dark btn-lg" href="#" style="color: cornflowerblue;"><i class="fa-solid fa-users-viewfinder text" title="Groups"></i></a>
+                  {% else %}
+                <a class="nav-link" href="{% url 'accounts:signup' %}" style="color: cornflowerblue;">Signup</a>
+                <a class="nav-link" style="color: cornflowerblue;">or</a>
+                <a class="nav-link" href="{% url 'accounts:signin' %}" style="color: cornflowerblue;">Signin</a>
+                  {% endif %}
+              </div>
+                <div class="col-2 navbar-nav"></div>
+            </div>
+      </div>
+      <div class="row align-items-end">
+        <div class="col-sm collapse navbar-collapse">
+            {% if user.is_authenticated %}
+            <a class="nav-link btn btn-dark btn-lg" href="#" style="color: cornflowerblue;"><i class="fa-solid fa-gear text" title="Settings"></i></a>
+            <a class="nav-link btn btn-dark btn-lg" href="{% url 'accounts:logout' %}" style="color: cornflowerblue;" aria-valuenow="Logout"><i class="fa-solid fa-right-from-bracket text" title="Logout"></i></a>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+</nav>

@@ -1,0 +1,45 @@
+{% extends 'master.html' %}
+
+{% load static %}
+
+{% block title %}Sign in{% endblock %}
+
+{% block content %}
+<style>
+    .bor{
+        border-radius: 20px;
+    }
+</style>
+
+<div class="container-fluid mt-5">
+  <div class="row align-items-start">
+    <div class="col-sm-3">
+    </div>
+        <form class="col-sm-6 card shadow bor" method="post">{% csrf_token %}
+            <div class="m-2 p-2 text-center card-title">
+              <h4 class="p-2">Sign in</h4>
+            </div>
+
+            <div class="card-body m-2">
+                <div class="group-control m-2">
+                    <input class="form-control text-center" type="email" name="username" maxlength="30"
+                            placeholder="Email@example.com" required>
+                </div>
+                <div class="group-control m-2">
+                    <input class="form-control text-center" type="password" name="password"
+                            placeholder="Password">
+                </div>
+            </div>
+            <div class="card-footer m-2 text-center row ">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <button class="btn btn-outline-primary col-sm-12 mt-2" type="submit">Sign in</button>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+            </form>
+    <div class="col-sm-3">
+    </div>
+  </div>
+</div>
+{% endblock %}
