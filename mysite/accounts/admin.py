@@ -28,7 +28,7 @@ class ProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'first_name', 'last_name')
     fieldsets = (
         ('info', {'fields': ('user', 'avatar')}),
-        ('Personal', {'fields': ('first_name', 'last_name', 'bio')}),
+        ('Personal', {'fields': ('first_name', 'last_name', 'bio', 'motto')}),
         ('Additional', {'fields': ('slug',)})
     )
 
