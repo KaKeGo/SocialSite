@@ -8,7 +8,7 @@ from .models import Posts
 # Create your views here.
 
 
-class HomeView(generic.DetailView):
-    template_name = 'blogs/posts.html'
+class HomeView(generic.ListView):
+    template_name = 'blogs/home.html'
     model = Posts
     context_object_name = 'posts'

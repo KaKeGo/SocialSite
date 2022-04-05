@@ -9,5 +9,5 @@ from .views import (
 app_name = 'blogs'
 
 urlpatterns = [
-
+    path('', login_required(HomeView.as_view()), name='home'),
 ]

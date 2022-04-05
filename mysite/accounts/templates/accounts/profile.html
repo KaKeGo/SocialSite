@@ -51,7 +51,8 @@
             <div class="col-md-3 p-3 mt-3 ">
                 <strong class="">{{profile.user.username}}</strong>
                 <p class="">{{profile.first_name}} {{profile.last_name}}</p>
-                <p class="">{{profile.motto}}</p>
+                <label for="motto_id" class="small">Motto:</label>
+                <p id="motto_id" class="">{{profile.motto}}</p>
             </div>
             <div class="col-md-2 m-2 ms-auto text-center">
                 <p class=""></p>
@@ -85,8 +86,8 @@
 <!-- Presentation  -->
     <div class="col-lg-1 m-2 mx-auto bord"></div>
     <div class="col-lg-3 m-2 mx-auto bord bg-dark p-2 shadow">
-        <h5 class="p-text ms-1">About:</h5>
-        <p class="mt-3 p-text col-sm-7 dec "><i class="fa-solid fa-clock text"></i> Date joined: {{profile.user.date_joined|date:'M-d' }}</p>
+        <h5 class="p-text ms-1"><i class="fa-solid fa-circle-info"></i> About</h5>
+        <p class="mt-3 p-text col-sm-7 dec "><i class="fa-solid fa-clock p-text"></i> Date joined: {{profile.user.date_joined|date:'M-d' }}</p>
     </div>
 <!-- First part of post  -->
     {% if request.user.id == profile.user.id %}
@@ -111,7 +112,7 @@
 <!-- Presentation  -->
     <div class="col-lg-1 m-2 mx-auto bord"></div>
     <div class="col-lg-3 m-2 mx-auto bord bg-dark p-2 shadow">
-        <h5 class="p-text ms-1">Gallery:</h5>
+        <h5 class="p-text ms-1"><i class="fa-solid fa-photo-film"></i> Gallery</h5>
         <p class="mt-3 p-text col-sm-7 dec">Photos here</p>
     </div>
 <!-- First part of post  -->
