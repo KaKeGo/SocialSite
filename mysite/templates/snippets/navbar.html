@@ -1,27 +1,8 @@
 {% load static %}
 
-<style>
-    .emo{
-        size: 80px;
-        color: gray;
-    }
-    .text{
-        color: gray;
-        transition: 0.4s;
-    }
-    .text:hover{
-        color: orangered;
-    }
-    .site-logo{
-        width: 70px;
-    }
-    .b{
-        border: solid;
-    }
-    .navbar{
-        color: gray;
-    }
-</style>
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+{% endblock %}
 
 <nav class="navbar navbar-expand-lg shadow navbar-light bg-dark">
     <a href="{% url 'accounts:first' %}"><img class="site-logo" src="{% static 'img/logo.png' %}" title="KaGaRya"></a>

@@ -4,42 +4,12 @@
 
 {% block title %}{{profile.user.username|capfirst }}{% endblock %}
 
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
 {% block content %}
-<style>
-    .avatar{
-        width: 100%;
-        border-radius: 50%;
-    }
-    .bg{
-        color: white;
-    }
-    .p-text{
-        color: gray;
-    }
-    .text{
-        color: gray;
-        transition: 0.4s;
-    }
-    .text:hover{
-        color: orangered;
-        font-size: 20px;
-    }
-    .but{
-        color: gray;
-        transition: 0.4s;
-    }
-    .but:hover{
-        color: orangered;
-        background-color: lightgray;
-        font-size: 20px;
-    }
-    .bord{
-        border-radius: 20px;
-    }
-    .dec{
-        text-decoration: none;
-    }
-</style>
+
 
 <!-- Main panel -->
 <div class="bg-dark bg p-text shadow-lg">
