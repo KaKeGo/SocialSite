@@ -18,16 +18,20 @@
     }
     .text{
         color: gray;
+        transition: 0.4s;
     }
     .text:hover{
         color: orangered;
+        font-size: 20px;
     }
     .but{
         color: gray;
+        transition: 0.4s;
     }
     .but:hover{
         color: orangered;
-        background-color: gray;
+        background-color: lightgray;
+        font-size: 20px;
     }
     .bord{
         border-radius: 20px;
@@ -88,8 +92,8 @@
     {% if request.user.id == profile.user.id %}
     <div class="col-lg-5 m-2 mx-auto bord bg-dark shadow">
         <div class="row text-gray mx-auto p-4">
-            <a class="but col-md-6 btn mx-auto" href="#" style="text-decoration: none">Add post</a>
-            <a class="but col-md-6 btn mx-auto" href="#" style="text-decoration: none">Add photo</a>
+            <a class="but col-md-6 btn mx-auto" href="#" style="text-decoration: none"><i class="fa-solid fa-plus mx-2"></i> create post</a>
+            <a class="but col-md-6 btn mx-auto" href="#" style="text-decoration: none"><i class="fa-solid fa-image mx-2"></i>add photo</a>
         </div>
     </div>
     {% else %}
