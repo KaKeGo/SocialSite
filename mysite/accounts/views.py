@@ -5,7 +5,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import resolve_url
 from django.contrib.auth import logout
 
-from .models import User
+from .models import User, Profile
 from .forms import UserCreateForm
 # Create your views here.
 
@@ -28,3 +28,9 @@ class SigninView(LoginView):
 def logout_view(request):
     logout(request)
     return redirect('accounts:first')
+
+class ProfileView(generic.DetailView):
+    template_name = 'accounts/profile.html'
+    model = Profile
+    context_object_name = 'profile'
+    slug_url_kwarg = 'slug'

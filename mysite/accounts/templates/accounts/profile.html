@@ -1,0 +1,51 @@
+{% extends 'master.html' %}
+
+{% load static %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<style>
+    .avatar{
+        width: 100%;
+        border-radius: 50%;
+    }
+    .bg{
+        border-radius: 20px;
+        color: white;
+    }
+    .lin{
+        border-left: 1px solid black;
+        height: 100%;
+        width: 0;
+    }
+</style>
+
+<!-- Main panel -->
+<div class="container-md m-2 mt-5 mx-auto bg-dark bg">
+    <div class="row">
+        <div class="col-md-2 p-3">
+            <img class="avatar" src="{{profile.avatar.url}}">
+        </div>
+        <div class="col-md-3 p-3 mt-3 ">
+            <strong class="">{{profile.user.username}}</strong>
+            <p class="">{{profile.first_name}} {{profile.last_name}}</p>
+        </div>
+        <div class="col-md-2 m-2 ms-auto text-center">
+            <p class=""></p>
+            <p class=""></p>
+            <p class=""></p>
+            <button class="btn btn-primary text-center mt-5">Edit profile</button>
+        </div>
+    </div>
+</div>
+
+<!-- hr -->
+<div class="container-md">
+    <hr/>
+</div>
+
+<!-- buttons  -->
+<div class="container-md b">
+</div>
+{% endblock %}
