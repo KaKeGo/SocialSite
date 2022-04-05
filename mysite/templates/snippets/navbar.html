@@ -31,6 +31,7 @@
               <div class="col-6 navbar-nav">
                   {% if user.is_authenticated %}
                 <b><a class="nav-link" href="#" style="color: cornflowerblue;">Home</a></b>
+                <b><a class="nav-link" href="{% url 'accounts:profile' profile.slug %}" style="color: cornflowerblue;">Profile</a></b>
                 <b><a class="nav-link" href="#" style="color: cornflowerblue;">Friends</a></b>
                 <b><a class="nav-link" href="#" style="color: cornflowerblue;">Groups</a></b>
                   {% else %}
