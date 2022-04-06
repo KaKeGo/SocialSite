@@ -23,15 +23,18 @@
             </ul>
         </div>
         <!--   Second column     -->
-        <div class=" m-2 col-md-5 colum2 bg-dark bord b">
+        <div class=" m-2 col-md-6 colum2 bg-dark bord b">
             <div class="p-3 text-center">
                 <a class="worlds btn" href="#"><i class="fa-solid fa-plus mx-2"></i> Create post</a>
             </div>
             <div class="b m-2 bg-dark mt-4"></div>
         </div>
         <!--   Third column     -->
-        <div class="b m-2 col-md-3 ms-auto colum3 bord bg-dark">
+        <div class="b m-2 col-md-2 ms-auto colum3 bord bg-dark">
             <h4 class="nor-text p-3"><i class="fa-solid fa-rectangle-list"></i> Friend list</h4>
+            <ul class="list-group">
+                <a class="row nor-text" href="#"><li class="list-group-item bg-dark lis-worlds" aria-current="true">{{request.user.username}}</li></a>
+            </ul>
         </div>
     </div>
 </div>
