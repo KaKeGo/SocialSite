@@ -21,8 +21,10 @@ def home_post_data_view(request):
     for post in posts:
         item = {
             'id': post.id,
-            'author': post.author.username,
+            'author': post.author.user.username,
+            'avatar': post.author.avatar.url,
             'body': post.body,
+            'total_likes': post.total_likes,
             'image': post.image.url,
             'create_on': post.create_on,
         }

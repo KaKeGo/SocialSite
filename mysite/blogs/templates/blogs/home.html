@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
@@ -30,7 +30,7 @@
                 <a class="worlds btn mb-1" href="#"><i class="fa-solid fa-plus mx-2"></i> Create post</a>
             </div>
             <br/>
-            <div class="p-3 text-center b bord bg-dark nor-text" id="post-box">
+            <div class="p-3 nor-text">
                 {% include 'blogs/posts.html' %}
             </div>
         <div class="text-center mt-3" id="post-spinner">
