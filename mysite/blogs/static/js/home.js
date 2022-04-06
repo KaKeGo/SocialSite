@@ -28,6 +28,8 @@ const getData = () => {
                             <div class="mt-3">
                                 <a class="small nor-text">Create: ${el.create_on} </a> <a class="ms-2 like"><i class="fa-solid fa-heart big"></a></i><a class="me-auto nor-text"> ${el.total_likes}</a>
                                 <hr/>
+                                <input class="form-control border-dark bord" placeholder="Write comment">
+                                <hr/>
                             </div>
                         </div>
                         `
