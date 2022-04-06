@@ -6,9 +6,13 @@ body{
     border: solid;
 }
 
-    .text{
-        color: gray;
-    }
-    .text:hover{
-        color: orangered;
-    }
+.text{
+    color: gray;
+}
+.text:hover{
+    color: orangered;
+}
+
+.nor-text{
+    color: gray;
+}

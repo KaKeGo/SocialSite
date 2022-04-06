@@ -4,12 +4,35 @@
 
 {% block title %}{% endblock %}
 
-{% block css %}{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
 
 {% block script %}{% endblock %}
 
 {% block content %}
 
-
-
+<div class="b container-fluid mt-4">
+    <div class="row">
+        <!--    First column    -->
+        <div class="b m-2 col-md-3 me-auto colum1 bg-dark bord">
+            <ul class="list-group">
+                <a href="{% url 'accounts:profile' request.user.profile.slug %}" class=" btn me-auto col-12"><li class="list-group-item bg-dark lis-worlds" aria-current="true">{{request.user.username}}</li></a>
+                <a href="" class=" btn me-auto col-12"><li class="list-group-item bg-dark lis-worlds" aria-current="true">Friends</li></a>
+                <a href="" class=" btn me-auto col-12"><li class="list-group-item bg-dark lis-worlds" aria-current="true">Groups</li></a>
+            </ul>
+        </div>
+        <!--   Second column     -->
+        <div class=" m-2 col-md-5 colum2 bg-dark bord b">
+            <div class="p-3 text-center">
+                <a class="worlds btn" href="#"><i class="fa-solid fa-plus mx-2"></i> Create post</a>
+            </div>
+            <div class="b m-2 bg-dark mt-4"></div>
+        </div>
+        <!--   Third column     -->
+        <div class="b m-2 col-md-3 ms-auto colum3 bord bg-dark">
+            <h4 class="nor-text p-3"><i class="fa-solid fa-rectangle-list"></i> Friend list</h4>
+        </div>
+    </div>
+</div>
 {% endblock %}
