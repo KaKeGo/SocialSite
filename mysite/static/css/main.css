@@ -17,3 +17,7 @@ body{
     color: gray;
     text-decoration: none;
 }
+
+.not-visible{
+    display: none;
+}
