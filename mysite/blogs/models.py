@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.template.defaultfilters import slugify
-from accounts.models import Profile
+from accounts.models import Profile, User
 
 # Create your models here.
 
@@ -9,7 +9,7 @@ from accounts.models import Profile
 class Posts(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     body = models.TextField(null=True, blank=True, default='What u want to write?')
-    liked = models.ManyToManyField(Profile, related_name='post_like', blank=True)
+    liked = models.ManyToManyField(User, related_name='post_like', blank=True)
     image = models.ImageField(upload_to='img/posts/', null=True, blank=True)
     slug = models.SlugField(unique=True, blank=True, null=True)
     create_on = models.DateTimeField(auto_now_add=True)

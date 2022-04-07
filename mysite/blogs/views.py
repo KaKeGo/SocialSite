@@ -1,4 +1,4 @@
-from django.shortcuts import render, resolve_url
+from django.shortcuts import render, resolve_url, get_object_or_404
 from django.views import generic
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
@@ -14,7 +14,12 @@ class HomeView(generic.ListView):
     context_object_name = 'posts'
 
 @login_required()
-def home_post_data_view(request):
+def home_post_data_view(request, num_posts):
+    visible = 1
+    upper = num_posts
+    lower = upper - visible
+    size = Posts.objects.all().count()
+
     posts = Posts.objects.all()
 
     data = []
@@ -29,4 +34,4 @@ def home_post_data_view(request):
             'create_on': post.create_on,
         }
         data.append(item)
-    return JsonResponse({'data': data})
+    return JsonResponse({'data': data[lower:upper], 'size':size})

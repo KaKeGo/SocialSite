@@ -1,13 +1,17 @@
 
 const postsBox = document.getElementById('post-box')
 const spinnerBox = document.getElementById('post-spinner')
+const loadMoreBut = document.getElementById('load-more')
+const moreBox = document.getElementById('more-box')
 
 const locationUrl = window.location.href
+
+visible = 1
 
 const getData = () => {
     $.ajax({
         type: 'GET',
-        url: '/data/',
+        url: `/data/${visible}`,
         success: function (response){
             console.log(response)
             const data = response.data
@@ -35,11 +39,31 @@ const getData = () => {
                         `
                 })
             }, 100);
+            console.log(response.size)
+            if (response.size === 0){
+                loadMoreBut.innerHTML =
+                    `
+                    <strong>Eny blog not added yet</strong>
+                    `
+            }
+            else if (response.size <= visible){
+                moreBox.classList.add('not-visible')
+                loadMoreBut.innerHTML =
+                    `
+                    <strong>No more blogs</strong>
+                    `
+            }
         },
         error: function (error){
             console.log(error)
         }
     })
 }
+
+loadMoreBut.addEventListener('click', () =>{
+    spinnerBox.classList.remove('not-visible')
+    visible += 1
+    getData()
+})
 
 getData()
