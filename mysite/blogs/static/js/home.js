@@ -6,7 +6,7 @@ const moreBox = document.getElementById('more-box')
 
 const locationUrl = window.location.href
 
-visible = 1
+visible = 4
 
 const getData = () => {
     $.ajax({
@@ -41,7 +41,7 @@ const getData = () => {
             }, 100);
             console.log(response.size)
             if (response.size === 0){
-                loadMoreBut.innerHTML =
+                moreBox.innerHTML =
                     `
                     <strong>Eny blog not added yet</strong>
                     `
@@ -62,7 +62,7 @@ const getData = () => {
 
 loadMoreBut.addEventListener('click', () =>{
     spinnerBox.classList.remove('not-visible')
-    visible += 1
+    visible += 4
     getData()
 })
 

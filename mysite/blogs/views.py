@@ -15,7 +15,7 @@ class HomeView(generic.ListView):
 
 @login_required()
 def home_post_data_view(request, num_posts):
-    visible = 1
+    visible = 4
     upper = num_posts
     lower = upper - visible
     size = Posts.objects.all().count()
