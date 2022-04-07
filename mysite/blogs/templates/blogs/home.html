@@ -27,7 +27,10 @@
         <!--   Second column     -->
         <div class=" col-md-6 colum2">
             <div class="p-2 text-center bg-dark bord">
-                <a class="worlds btn mb-1" href="#"><i class="fa-solid fa-plus mx-2"></i> Create post</a>
+                <!-- Button trigger create post modal -->
+                <a class="btn worlds mb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <i class="fa-solid fa-plus mx-2"></i>Create post
+                </a>
             </div>
             <br/>
             <div class="p-3 nor-text">
@@ -50,5 +53,25 @@
             </ul>
         </div>
     </div>
+</div>
+
+
+<!-- Modal Create post -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Create post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

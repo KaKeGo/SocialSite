@@ -6,6 +6,30 @@ const moreBox = document.getElementById('more-box')
 
 const locationUrl = window.location.href
 
+const likePosts = () =>{
+    const likeForm = [...document.getElementsByClassName('like-form')]
+    likeForm.forEach(form => form.addEventListener('submit', e =>{
+        e.preventDefault()
+        const clickerID = e.target.getAttribute('data-form-id')
+        const clickedBtn = document.getElementById(`like-${clickerID}`)
+
+        $.ajax({
+            type: 'POST',
+            url: '/like/',
+            data: {
+                'csrfmiddlewaretoken': csrftoken,
+                'pk': clickerID
+            },
+            success: function (response){
+                clickedBtn.innerText = response.liked ? `Like: ${response.count}`:`Unlike: ${response.count}`
+            },
+            error: function (error){
+                console.log(error)
+            }
+        })
+    }))
+}
+
 visible = 4
 
 const getData = () => {
@@ -29,15 +53,18 @@ const getData = () => {
                             <div class="mt-2">
                                 <img class="emage" src="${el.image}">
                             </div>
-                            <div class="mt-3">
-                                <a class="small nor-text">Create: ${el.create_on} </a> <a class="ms-2 like"><i class="fa-solid fa-heart big"></a></i><a class="me-auto nor-text"> ${el.total_likes}</a>
+                            <form class="mt-3 like-form" method="post" data-form-id="${el.id}">
+                                <a class="small nor-text" >Create: ${el.create_on} 
+                                </a><button class="btn btn-success small btn-sm" type="submit" name="liked" id="like-${el.id}"> ${el.liked ? `Like: ${el.count}`: `Unlike: ${el.count}`}</button>
+                                <a class="me-auto nor-text"></a>
                                 <hr/>
                                 <input class="form-control border-dark bord" placeholder="Write comment">
                                 <hr/>
-                            </div>
+                            </form>
                         </div>
                         `
                 })
+                likePosts()
             }, 100);
             console.log(response.size)
             if (response.size === 0){

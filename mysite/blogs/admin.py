@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from .models import Posts
+from .models import Blogs
 # Register your models here.
 
 
-@admin.register(Posts)
-class PostsAdmin(admin.ModelAdmin):
+@admin.register(Blogs)
+class BlogsAdmin(admin.ModelAdmin):
     list_display = ('author', 'total_likes', 'create_on')
     list_filter = ('author', 'create_on')
