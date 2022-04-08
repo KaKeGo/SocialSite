@@ -4,14 +4,18 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 
+from accounts.models import User
 from .models import Blogs
+from .form import BlogCreateForm
 # Create your views here.
 
 
-class HomeView(generic.ListView):
+class HomeView(generic.CreateView):
     template_name = 'blogs/home.html'
     model = Blogs
+    form_class = BlogCreateForm
     context_object_name = 'posts'
+    success_url = reverse_lazy('blogs:home')
 
 @login_required()
 def home_post_data_view(request, num_posts):

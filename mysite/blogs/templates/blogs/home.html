@@ -10,9 +10,11 @@
 
 {% block script %}
     <script type="text/javascript" src="{% static 'js/home.js' %}" defer></script>
+    <script type="text/javascript" src="{% static 'js/create_post.js' %}" defer></script>
 {% endblock %}
 
 {% block content %}
+
 
 <div class="container-fluid mt-4">
     <div class="row">
@@ -33,6 +35,7 @@
                 </a>
             </div>
             <br/>
+            <div id="post-box"></div>
             <div class="p-3 nor-text">
                 {% include 'blogs/posts.html' %}
             </div>
@@ -55,22 +58,15 @@
     </div>
 </div>
 
-
 <!-- Modal Create post -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog" style="margin-right: 60px;">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Create post</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
+      {% include 'blogs/create_post.html' %}
     </div>
   </div>
 </div>

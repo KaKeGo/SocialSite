@@ -21,10 +21,10 @@ const likePosts = () =>{
                 'pk': clickerID
             },
             success: function (response){
-                clickedBtn.innerText = response.liked ? `Like: ${response.count}`:`Unlike: ${response.count}`
+                clickedBtn.innerText = response.liked ? `Unlike: ${response.count}`:`Like: ${response.count}`
             },
             error: function (error){
-                console.log(error)
+
             }
         })
     }))
@@ -37,7 +37,7 @@ const getData = () => {
         type: 'GET',
         url: `/data/${visible}`,
         success: function (response){
-            console.log(response)
+
             const data = response.data
             setTimeout(() =>{
                 spinnerBox.classList.add('not-visible')
@@ -49,13 +49,13 @@ const getData = () => {
                                 <img class="avat mx-2" src="${el.avatar}"><a class="lis-worlds" href="${locationUrl}accounts/profile/${el.author.toLowerCase()}">${el.author}</a>
                             </div>
                             <hr/>
-                            <div class="">${el.body}</div>
+                            <div class="nor-text">${el.body}</div>
                             <div class="mt-2">
                                 <img class="emage" src="${el.image}">
                             </div>
                             <form class="mt-3 like-form" method="post" data-form-id="${el.id}">
                                 <a class="small nor-text" >Create: ${el.create_on} 
-                                </a><button class="btn btn-success small btn-sm" type="submit" name="liked" id="like-${el.id}"> ${el.liked ? `Like: ${el.count}`: `Unlike: ${el.count}`}</button>
+                                </a><button class="btn btn-success small btn-sm" type="submit" name="liked" id="like-${el.id}"> ${el.liked ? `Unlike: ${el.count}`: `Like: ${el.count}`}</button>
                                 <a class="me-auto nor-text"></a>
                                 <hr/>
                                 <input class="form-control border-dark bord" placeholder="Write comment">
@@ -66,7 +66,7 @@ const getData = () => {
                 })
                 likePosts()
             }, 100);
-            console.log(response.size)
+
             if (response.size === 0){
                 moreBox.innerHTML =
                     `
@@ -82,7 +82,7 @@ const getData = () => {
             }
         },
         error: function (error){
-            console.log(error)
+
         }
     })
 }

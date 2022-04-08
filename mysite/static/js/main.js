@@ -1,4 +1,6 @@
 
+const alertBox = document.getElementById('alert')
+
 const getCookie = (name) => {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -17,3 +19,12 @@ const getCookie = (name) => {
 const csrftoken = getCookie('csrftoken');
 
 const csrf = document.getElementsByName('csrfmiddlewaretoken')
+
+const handleAlerts = (type, text)=>{
+    alertBox.innerHTML =
+        `
+        <div class="alert alert-${type}" role="alert">
+            ${text}
+        </div>
+        `
+}

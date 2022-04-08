@@ -12,7 +12,7 @@ class Blogs(models.Model):
     body = models.TextField(null=True, blank=True, default='What u want to write?')
     liked = models.ManyToManyField(User, related_name='post_like', blank=True)
     image = models.ImageField(upload_to='img/posts/', null=True, blank=True)
-    slug = models.SlugField(unique=True, blank=True, null=True)
+    slug = models.SlugField(blank=True, null=True)
     create_on = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     update_on = models.DateTimeField(auto_now=True, blank=True, null=True)
 
@@ -22,15 +22,13 @@ class Blogs(models.Model):
         verbose_name = 'Blog'
 
     def __str__(self):
-        return str(self.author) + str(self.pk)
+        return str(self.author) + str(self.pk) + str(self.body)
 
     @property
     def total_likes(self):
         return self.liked.count()
 
-    def get_absolute_url(self):
-        return reverse('blogs:detail', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(str(self.author) + ':' + str(self.pk))
+        self.slug = slugify(str(self.author) + ':' + str(self.id))
         super(Blogs, self).save(*args, **kwargs)

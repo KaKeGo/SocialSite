@@ -1,0 +1,12 @@
+
+
+<form class="modal-body" id="post-form" enctype="multipart/form-data"
+                method="post" autocomplete="off">{% csrf_token %}
+        <div class="text-center" id="alert"></div>
+        {{form}}
+        <div class="modal-footer row col-6 mx-auto" id="img-box"></div>
+        <div class="modal-footer row col-6 mx-auto">
+                <button type="submit" class="btn btn-outline-primary">Send post</button>
+      </div>
+</form>
+
