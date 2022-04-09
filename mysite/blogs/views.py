@@ -2,7 +2,7 @@ from django.shortcuts import render, resolve_url, get_object_or_404
 from django.views import generic
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 
 from accounts.models import User
 from .models import Blogs
@@ -14,8 +14,25 @@ class HomeView(generic.CreateView):
     template_name = 'blogs/home.html'
     model = Blogs
     form_class = BlogCreateForm
-    context_object_name = 'posts'
     success_url = reverse_lazy('blogs:home')
+    context_object_name = 'posts'
+
+    def post(self, request, *args, **kwargs):
+        form = BlogCreateForm(request.POST or None, request.FILES or None)
+
+        if form.is_valid():
+            instacne = form.save(commit=False)
+            instacne.author = request.user
+            instacne.save()
+            return HttpResponse({
+                'body': instacne.body,
+                'author': instacne.author.username,
+                'image': instacne.image,
+            })
+        context = {
+            'form': form,
+        }
+        return render(request, 'blogs/home.html', context)
 
 @login_required()
 def home_post_data_view(request, num_posts):
