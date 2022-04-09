@@ -1,0 +1,20 @@
+    .emo{
+        size: 80px;
+        color: gray;
+    }
+    .text{
+        color: gray;
+        transition: 0.4s;
+    }
+    .text:hover{
+        color: orangered;
+    }
+    .site-logo{
+        width: 70px;
+    }
+    .b{
+        border: solid;
+    }
+    .navbar{
+        color: gray;
+    }

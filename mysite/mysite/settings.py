@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #My apps
     'accounts',
+    'blogs',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 AUTH_USER_MODEL = 'accounts.User'
+
+LOGIN_REDIRECT_URL = 'accounts:signup'
+
+LOGIN_URL = 'accounts:signin'

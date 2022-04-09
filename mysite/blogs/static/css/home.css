@@ -1,0 +1,58 @@
+
+hr{
+    color: gray;
+}
+
+.colum1{
+    height: 180px;
+}
+
+.colum2{
+    height: 80px;
+}
+
+.colum3{
+    height: 200px;
+}
+
+.bord{
+    border-radius: 20px;
+}
+.worlds{
+    color: gray;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.worlds:hover{
+    color: orangered;
+    background-color: lightgray;
+}
+
+.lis-worlds{
+    color: gray;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.lis-worlds:hover{
+    color: orangered;
+
+}
+
+.avat{
+    width: 40px;
+    border-radius: 50%;
+}
+
+.emage{
+    width: 100%;
+}
+
+.like{
+    color: gray;
+    transition: 0.6s;
+}
+
+.like:hover{
+    color: red;
+}

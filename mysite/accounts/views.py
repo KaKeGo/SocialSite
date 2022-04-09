@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import resolve_url
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 
 from .models import User, Profile
 from .forms import UserCreateForm
@@ -25,6 +26,7 @@ class SigninView(LoginView):
     def get_success_url(self):
         return resolve_url('accounts:first')
 
+@login_required()
 def logout_view(request):
     logout(request)
     return redirect('accounts:first')

@@ -1,0 +1,73 @@
+{% extends 'master.html' %}
+
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/home.js' %}" defer></script>
+    <script type="text/javascript" src="{% static 'js/create_post.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <!--    First column    -->
+        <div class="b col-md-3 me-auto colum1 bg-dark">
+            <ul class="list-group">
+                <a href="{% url 'accounts:profile' request.user.profile.slug %}" class=" btn me-auto col-12"><li class="list-group-item bg-dark lis-worlds" aria-current="true">{{request.user.username}}</li></a>
+                <a href="" class=" btn me-auto col-12"><li class="list-group-item bg-dark lis-worlds" aria-current="true">Friends</li></a>
+                <a href="" class=" btn me-auto col-12"><li class="list-group-item bg-dark lis-worlds" aria-current="true">Groups</li></a>
+            </ul>
+        </div>
+        <!--   Second column     -->
+        <div class=" col-md-6 colum2">
+            <div class="p-2 text-center bg-dark bord">
+                <!-- Button trigger create post modal -->
+                <a class="btn worlds mb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <i class="fa-solid fa-plus mx-2"></i>Create post
+                </a>
+            </div>
+            <br/>
+            <div id="post-box"></div>
+            <div class="p-3 nor-text">
+                {% include 'blogs/posts.html' %}
+            </div>
+            <div class="text-center mt-3" id="post-spinner">
+                <div class="spinner-border" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div id="more-box">
+                <button class="btn btn-primary text-center mt-4" id="load-more">more</button>
+            </div>
+        </div>
+        <!--   Third column     -->
+        <div class="b col-md-2 ms-auto colum3 bg-dark">
+            <h4 class="nor-text p-3"><i class="fa-solid fa-rectangle-list"></i> Friend list</h4>
+            <ul class="list-group">
+                <a class="row nor-text" href="#"><li class="list-group-item bg-dark lis-worlds" aria-current="true">{{request.user.username}}</li></a>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Create post -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" style="margin-right: 60px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Create post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      {% include 'blogs/create_post.html' %}
+    </div>
+  </div>
+</div>
+{% endblock %}
