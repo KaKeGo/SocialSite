@@ -5,7 +5,6 @@ from .views import (
     HomeView,
     home_post_data_view,
     like_post,
-
 )
 
 

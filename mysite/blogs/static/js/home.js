@@ -44,9 +44,9 @@ const getData = () => {
                 data.forEach(el => {
                     postsBox.innerHTML +=
                         `
-                        <div class="card-title p-2 mt-3 bg-dark bord">
-                            <div class="display-inline">
-                                <img class="avat mx-2" src="${el.avatar}"><a class="lis-worlds" href="${locationUrl}accounts/profile/${el.author.toLowerCase()}">${el.author}</a>
+                        <div class="card-title p-2 mt-3 bg-dark bord nor-text">
+                            <div class="display-inline b">
+                                <img class="avat mx-2 nor-text b" src="${el.avatar}"><a class="lis-worlds" href="${locationUrl}accounts/profile/${el.author.toLowerCase()}">${el.author}</a>
                             </div>
                             <hr/>
                             <div class="nor-text">${el.body}</div>

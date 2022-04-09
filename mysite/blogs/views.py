@@ -1,5 +1,5 @@
 from django.shortcuts import render, resolve_url, get_object_or_404
-from django.views import generic
+from django.views import generic, View
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponse
