@@ -22,7 +22,7 @@
                     <a class="nav-link mt-1 btn btn-dark btn-lg" href="{% url 'accounts:profile' request.user.profile.slug %}" style="color: cornflowerblue;"><i class="fa-solid fa-user text" title="Profile"></i></a>
                     <a class="nav-link mt-1 btn btn-dark btn-lg" href="{% url 'blogs:home' %}" style="color: cornflowerblue;"><i class="fa-solid fa-house text" title="Home"></i></a>
                     <a class="nav-link mt-1 btn btn-dark btn-lg" href="#" style="color: cornflowerblue;"><i class="fa-solid fa-user-group text" title="Friends"></i></a>
-                    <a class="nav-link mt-1 btn btn-dark btn-lg" href="#" style="color: cornflowerblue;"><i class="fa-solid fa-users-viewfinder text" title="Groups"></i></a>
+                    <a class="nav-link mt-1 btn btn-dark btn-lg" href="{% url 'groups:groups' %}" style="color: cornflowerblue;"><i class="fa-solid fa-users-viewfinder text" title="Groups"></i></a>
                   {% else %}
                 <a class="nav-link" href="{% url 'accounts:signup' %}" style="color: cornflowerblue;">Signup</a>
                 <a class="nav-link" style="color: cornflowerblue;">or</a>
