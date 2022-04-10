@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blogs.urls', namespace='blogs')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('groups/', include('groups.urls', namespace='groups')),
 ]
 
 if settings.DEBUG:
