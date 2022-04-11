@@ -29,3 +29,18 @@
 .bord{
     border-radius: 20px;
 }
+
+.av{
+    width: 100%;
+    border-radius: 20px;
+}
+
+.but{
+    color: gray;
+    transition: 0.4s;
+}
+.but:hover{
+    color: orangered;
+    background-color: lightgray;
+    font-size: 20px;
+}
