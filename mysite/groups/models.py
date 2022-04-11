@@ -26,7 +26,7 @@ class Group(models.Model):
     members = models.ManyToManyField(User, related_name='group_members', blank=True)
     regiment = models.ManyToManyField(Regiment, blank=True)
     posts = models.ManyToManyField(GroupPost, blank=True)
-    profile = models.ManyToManyField(Profile)
+    profile = models.ManyToManyField(Profile, blank=True)
     slug = models.SlugField(unique=True, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -50,8 +50,5 @@ class Group(models.Model):
         return reverse('groups:detail', kwargs={'slug': self.slug})
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(str(self.name))
+        self.slug = slugify(str(self.name.replace(" ", "-")[:50]))
         super(Group, self).save(*args, **kwargs)
-
-
-

@@ -32,6 +32,7 @@ def groups_data_view(request):
             'description': g.description,
             'total_members': g.total_members,
             'gavatar': g.gavatar.url,
+            'slug': g.slug,
         }
         data.append(items)
     return JsonResponse({'data':data})

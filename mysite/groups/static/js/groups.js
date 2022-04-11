@@ -31,7 +31,7 @@ const getData = () => {
                                 <p class="nor-text me-auto" href="">Members: ${el.total_members}</p>
                             </div>
                             <div class="text-center">
-                                <a class="btn btn-primary" href="${url}${el.name.toLowerCase()}">Check</a>
+                                <a class="btn btn-primary" href="${url}${el.slug}">Check</a>
                             </div>
                         </div>
                         `
