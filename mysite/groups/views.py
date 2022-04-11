@@ -2,10 +2,19 @@ from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from django.urls import reverse_lazy
 
 from .models import Group
+from .forms import GroupCreateForm
 # Create your views here.
 
+
+class GroupCreateView(generic.CreateView):
+    template_name = 'groups/group_create.html'
+    model = Group
+    form_class = GroupCreateForm
+    context_object_name = 'group'
+    success_url = reverse_lazy('groups:groups')
 
 class GroupsView(generic.ListView):
     template_name = 'groups/groups.html'
