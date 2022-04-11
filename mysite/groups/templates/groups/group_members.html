@@ -50,8 +50,8 @@
 <!-- First part of post  -->
     <div class="col-lg-7 m-2 mx-auto bord bg-dark shadow">
         <div class="row text-gray mx-auto p-4">
-            {% for g in group.members.all %}
-            <b class="nor-text">{{g.username}}</b>
+            {% for g in group.profile.all %}
+            <a class="nor-text" href="{% url 'accounts:profile' g.slug %}"><b>{{g.user.username}}</b></a>
             {% endfor %}
         </div>
     </div>

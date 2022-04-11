@@ -11,9 +11,6 @@ from .forms import UserCreateForm
 # Create your views here.
 
 
-def FirstView(request):
-    return render(request, 'accounts/home.html')
-
 class SignupView(generic.CreateView):
     template_name = 'accounts/signup.html'
     model = User
