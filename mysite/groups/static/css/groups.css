@@ -1,0 +1,31 @@
+.colum1{
+    height: 1000px;
+}
+
+.colum2{
+
+}
+
+.colum3{
+    height: 1000px;
+}
+
+.avat{
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+
+.lis-worlds{
+    color: gray;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.lis-worlds:hover{
+    color: orangered;
+
+}
+
+.bord{
+    border-radius: 20px;
+}

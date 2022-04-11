@@ -4,6 +4,59 @@
 
 {% block title %}Groups{% endblock %}
 
-{% block content %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/groups.css' %}">
+{% endblock %}
 
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/groups.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+    <div class="row">
+        <!--    First column    -->
+        <div class="b col-md-3 me-auto colum1 bg-dark">
+            <ul class="list-group">
+                <a href="" class=" btn me-auto col-12"><li class="list-group-item bg-dark lis-worlds text" aria-current="true">Search group</li></a>
+                <a href="" class=" btn me-auto col-12"><li class="list-group-item bg-dark lis-worlds text" aria-current="true">Create group</li></a>
+            </ul>
+            <hr class="nor-text"/>
+            <b class="nor-text">Your groups</b>
+            <ul class="list-group mt-2">
+                {% if request.user %}
+                    {% for group in groups %}
+                    <li class="text">{{group}}</li>
+                    {% endfor %}
+                {% else %}
+                    <li class="list-group-item bg-dark nor-text">No groups</li>
+                {% endif %}
+            </ul>
+        </div>
+        <!--   Second column     -->
+        <div class=" col-md-6 colum2">
+            <br/>
+            <div id="group-box"></div>
+            <div class="p-3 nor-text">
+
+            </div>
+            <!--   Spinner and more button     -->
+            <div class="text-center mt-3" id="group-spinner">
+                <div class="spinner-border" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div id="more-box" class="text-center mt-3">
+                <button class="btn btn-primary text-center mt-4" id="load-more">more</button>
+            </div>
+        </div>
+        <!--   Third column     -->
+        <div class="b col-md-2 ms-auto colum3 bg-dark">
+            <h4 class="nor-text p-3"><i class="fa-solid fa-rectangle-list"></i> Friend list</h4>
+            <ul class="list-group">
+                <a class="row text" href="#"><li class="list-group-item bg-dark lis-worlds text" aria-current="true">{{request.user.username}}</li></a>
+            </ul>
+        </div>
+    </div>
+</div>
 {% endblock %}

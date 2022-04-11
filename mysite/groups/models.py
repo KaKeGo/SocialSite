@@ -1,14 +1,14 @@
 from django.db import models
 from django.urls import reverse
 from django.template.defaultfilters import slugify
-from accounts.models import User
+from accounts.models import User, Profile
 
 # Create your models here.
 
 
 class GroupPost(models.Model):
     body = models.TextField(max_length=500)
-    image = models.ImageField(upload_to='img/group/')
+    image = models.ImageField(upload_to='img/group/blogs/')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Regiment(models.Model):
@@ -21,10 +21,12 @@ class Regiment(models.Model):
 class Group(models.Model):
     name = models.CharField(max_length=30, unique=True)
     founder = models.ForeignKey(User, on_delete=models.CASCADE)
+    gavatar = models.ImageField(upload_to='img/group/', null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     members = models.ManyToManyField(User, related_name='group_members', blank=True)
     regiment = models.ManyToManyField(Regiment, blank=True)
     posts = models.ManyToManyField(GroupPost, blank=True)
+    profile = models.ManyToManyField(Profile)
     slug = models.SlugField(unique=True, null=True, blank=True)
     create_on = models.DateTimeField(auto_now_add=True)
 
@@ -49,7 +51,7 @@ class Group(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(str(self.name))
-        super(GroupModel, self).save(*args, **kwargs)
+        super(Group, self).save(*args, **kwargs)
 
 
 
