@@ -13,7 +13,7 @@ const url = ''
 image.addEventListener('change', ()=>{
     const img_data = image.files[0]
     const url = URL.createObjectURL(img_data)
-    imgBox.innerHTML = `<img src="${url}" width="100%">`
+    imgBox.innerHTML = `<img src="${url}" style="width: 400px; height: 250px;">`
 })
 
 postForm.addEventListener('submit', e=>{
@@ -31,7 +31,7 @@ postForm.addEventListener('submit', e=>{
         enctype: 'multipart/form-data',
         data: fd,
         success: function (response){
-            const stext= `successfully created post`
+            const stext = `successfully created post`
             handleAlerts('success', stext)
             setTimeout(()=>{
                 alertBox.innerHTML = ''

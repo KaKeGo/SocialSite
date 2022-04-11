@@ -2,11 +2,41 @@
 
 {% load static %}
 
-{% block title %}{% endblock %}
+{% block title %}Create{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/groups.css' %}">
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static 'js/group_create.js' %}" defer></script>
+{% endblock %}
 
 {% block content %}
-<form method="post" enctype="multipart/form-data">{% csrf_token %}
-{{form.as_p}}
-    <button type="submit">Create</button>
-</form>
+
+<div class="mt-4">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 p-2 b bord nor-text bg-dark">
+            <div class="p-3">
+                <a class="btn btn-success mx-3" style="border-radius: 30px;" href="{% url 'groups:groups' %}">Back</a>
+            </div>
+            <form id="group-form">{% csrf_token %}
+                <div class="text-center" id="alert"></div>
+                {{form.as_p}}
+                <div class="text-center">
+                    <button class="btn btn-primary" type="submit">Create</button>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-3"></div>
+                    <div class="col-6" id="avatar-box"></div>
+                    <div class="col-3"></div>
+                </div>
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+
 {% endblock %}
