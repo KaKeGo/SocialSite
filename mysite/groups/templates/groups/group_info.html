@@ -19,14 +19,14 @@
                 <strong class="nor-text">{{group.name}}</strong>
                 <label for="motto_id" class="small">Description:</label>
                 <p id="motto_id" class="nor-text">{{group.description}}</p>
+                <p class="nor-text">Created: {{group.create_on|date:'Y-M-d'}}</p>
             </div>
             <div class="col-md-2 m-2 ms-auto text-center">
                 <a class="btn btn-primary text-center" href="#">Edit profile</a>
             </div>
         </div>
     </div>
-
-
+    
     <!-- hr -->
     <div class="container-md" style="color: gray">
         <hr/>
